@@ -3,4 +3,9 @@
 const store = {
 };
 
-module.exports = store;
+const products = [];
+
+module.exports = {
+  store,
+  products
+};
