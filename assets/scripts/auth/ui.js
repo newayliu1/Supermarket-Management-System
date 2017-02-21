@@ -4,8 +4,9 @@ const success = () => {
 };
 
 const failure = () => {
-  $('.result-display').text('Action Incomplete');
+  // $('.result-display').text('Action Incomplete');
   $('.input-field').val('');
+  console.log('FAILURE');
 };
 
 const changePasswordSuccess = () =>{
@@ -21,33 +22,18 @@ $('.input-field').val('');
 };
 
 const signInSuccess = () => {
-  $('.sign-up').val('');
   $('.input-field').val('');
-  $('#start-button').show();
   $('.sign-up').hide();
   $('.sign-in').hide();
   $('.change-password').show();
   $('#sign-out').show();
-   $('#board').show();
-   $('#x').hide();
-   $('#o').hide();
-   $('.container').hide();
-   $('.result-display').show();
-   $('.games-played').show();
-   $('.result-display').text('Sign In Successfully!');
 };
 
 const signOutSuccess = () => {
   $('#sign-out').hide();
   $('.change-password').hide();
-  // $('#game-log').hide();
-  $('#board').hide();
-  $('.games-played').text('');
-  $('.result-display').text('');
   $('.sign-in').show();
   $('.sign-up').show();
-  $('#start-button').hide();
-  offXO();
 };
 
 const selectedRole = () => {

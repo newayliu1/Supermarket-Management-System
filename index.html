@@ -16,7 +16,7 @@
 <body class="container-fluid">
   <nav>
     <ul class="navigation">
-      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+      <li class="dropdown sign-up"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
         <div class="dropdown-menu">
           <form id="sign-up">
             <label>EMAIL
@@ -32,9 +32,32 @@
           </form>
         </div>
       </li>
-      <li><a href="#">Sign In</a></li>
-      <li><a href="#">Sign Out</a></li>
-      <li><a href="#">Change Password</a></li>
+      <li class="dropdown sign-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+        <div class="dropdown-menu">
+            <form id="sign-in">
+                <label>
+              EMAIL
+              <input class="input-field" type="text" name='credentials[email]'>
+            </label><br/>
+                <label>
+              PASSWORD
+              <input class="input-field" type = 'password' name='credentials[password]'>
+            </label><br/>
+                <input type="submit" name="submit" value="Sign in!">
+              </form>
+          </div>
+      </li>
+      <li class="dropdown change-password"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Password</a>
+        <div class="dropdown-menu">
+            <form id="change-password">
+              <label>Change Password</label>
+                <input class="input-field" type="password" name="passwords[old]" value="" placeholder="Old Password">
+              <input class="input-field" type="password" name="passwords[new]" value="" placeholder="New Password">
+              <input type="submit" name="submit" value="Change Password">
+            </form>
+          </div>
+      </li>
+      <li id="sign-out"><a href="#">Sign Out</a></li>
     </ul>
   </nav>
   <header>
