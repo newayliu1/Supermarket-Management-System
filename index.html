@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    </body>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <nav>
+    <ul class="navigation">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+        <div class="dropdown-menu">
+          <form id="sign-up">
+            <label>EMAIL
+              <input class="input-field" type="text" name='credentials[email]'>
+            </label>
+            <label>PASSWORD
+              <input class="input-field" type = 'password' name='credentials[password]'>
+            </label>
+            <label>PASSWORD CONFIRMATION
+              <input class="input-field" type = 'password' name='credentials[password_confirmation]'>
+            </label>
+            <input type="submit" name="submit" value="Sign up!">
+          </form>
+        </div>
+      </li>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Sign Out</a></li>
+      <li><a href="#">Change Password</a></li>
+    </ul>
+  </nav>
+  <header>
+    Supermarket Management System
+  </header>
+  <aside>
+  </aside>
+  <section>
+  </section>
+</body>
+
 </html>
