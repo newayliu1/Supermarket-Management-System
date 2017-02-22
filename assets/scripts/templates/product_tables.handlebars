@@ -1,0 +1,17 @@
+<h1>Table</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products as |product|}}
+    <tr>
+      <td data-id="{{product.id}}">{{product.id}}</td>
+      <td>{{product.name}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

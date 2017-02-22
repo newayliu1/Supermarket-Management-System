@@ -6,6 +6,9 @@ header {
   text-align: center;
 }
 
+.clearfix {
+overflow: auto;
+}
 
 section {
   height:600px;
@@ -71,4 +74,11 @@ aside {
   .navigation li:last-of-type a {
     border-bottom: none;
   }
+}
+
+#product_id {
+  margin: auto;
+  height: 30px;
+  font-size: 20px;
+  color: white;
 }

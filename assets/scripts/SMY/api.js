@@ -12,18 +12,10 @@ const search = function () {
   });
 };
 
-const signIn = function (data) {
+const createInv = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
+    url: config.apiOrigin + '/inventories',
     method: 'POST',
-    data,
-  });
-};
-
-const changePassword = function (data) {
-  return $.ajax({
-    url: `${config.apiOrigin}/change-password/${store.user.id}`,
-    method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
     },
@@ -31,62 +23,52 @@ const changePassword = function (data) {
   });
 };
 
-const signOut = function () {
+const createOrder = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/sign-out/${store.user.id}`,
-    method: 'DELETE',
+    url: config.apiOrigin + '/orders',
+    method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`,
     },
+    data,
   });
 };
-//
-// const addGame = function (data) {
+
+const createProduct = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/products',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data,
+  });
+};
+
+// const changePassword = function (data) {
 //   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'POST',
-//     headers: {
-//       Authorization: `Token token=${player.playerOne.token}`,
-//     },
-//     data,
-//   });
-// };
-//
-// const updateCells = function (data,id) {
-//   return $.ajax({
-//     url: `${config.apiOrigin}/games/${id}`,
+//     url: `${config.apiOrigin}/change-password/${store.user.id}`,
 //     method: 'PATCH',
 //     headers: {
-//       Authorization: `Token token=${player.playerOne.token}`,
+//       Authorization: `Token token=${store.user.token}`,
 //     },
 //     data,
 //   });
 // };
 //
-// const updateGame = function (data,id) {
+// const signOut = function () {
 //   return $.ajax({
-//     url: `${config.apiOrigin}/games/${id}`,
-//     method: 'PATCH',
+//     url: `${config.apiOrigin}/sign-out/${store.user.id}`,
+//     method: 'DELETE',
 //     headers: {
-//       Authorization: `Token token=${player.playerOne.token}`,
-//     },
-//     data,
-//   });
-// };
-//
-// const getGame = function () {
-//   return $.ajax({
-//     url: `${config.apiOrigin}/games`,
-//     method: 'GET',
-//     headers: {
-//       Authorization: `Token token=${player.playerOne.token}`,
+//       Authorization: `Token token=${store.user.token}`,
 //     },
 //   });
 // };
 
 module.exports = {
   search,
-  signIn,
-  changePassword,
-  signOut,
+  createInv,
+  createOrder,
+  createProduct
 };

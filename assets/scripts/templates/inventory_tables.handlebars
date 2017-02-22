@@ -1,0 +1,21 @@
+<h1>Table</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Inventory ID</th>
+      <th>Product</th>
+      <th>Section</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each inventories as |inventory|}}
+    <tr>
+      <td data-id="{{inventory.id}}">{{inventory.id}}</td>
+      <td>{{inventory.product.name}}</td>
+      <td>{{inventory.section}}</td>
+      <td>{{inventory.price}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

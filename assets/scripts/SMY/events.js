@@ -5,17 +5,7 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
-
-const getProductID = function(product) {
-  // let productID = 0;
-  //
-  // store.products.forEach((el) => {
-  //   if (el.name === product){
-  //     productID = el.id;}
-  // });
-  // return productID;
-
-};
+const data_analyst = require('./data_analyst');
 
 const onSearch = function(event) {
   event.preventDefault();
@@ -24,36 +14,55 @@ const onSearch = function(event) {
   api.search()
     .then((response) => {
       store.products = response.products;
-      console.log(store.products);
+      let productID = data_analyst.getProductID(product);
+      $('#product_id').text(productID);
       return store;
     })
     .catch(ui.failure);
 };
 
-// const onSignIn = function(event) {
-//   event.preventDefault();
+const onCreateInv = function(event) {
+  event.preventDefault();
+
+  let data = getFormFields(event.target);
+  data.inventory.user_id = store.user.id;
+  api.createInv(data)
+    .then((response) => {
+      store.inventories = response;
+      ui.createInvSuccess(store.inventories);
+      return store;
+    })
+    .catch(ui.failure);
+
+};
 //
-//   let data = getFormFields(event.target);
-//
-//   api.signIn(data)
-//     .then((response) => {
-//       store.products = response.products;
-//       return store;
-//     })
-//     .then(ui.signInSuccess)
-//     .catch(ui.failure);
-//
-// };
-//
-// const onChangePassword = function(event) {
-//   event.preventDefault();
-//
-//   let data = getFormFields(event.target);
-//
-//   api.changePassword(data)
-//     .then(ui.changePasswordSuccess)
-//     .catch(ui.failure);
-// };
+const onCreateOrder = function(event) {
+  event.preventDefault();
+
+  let data = getFormFields(event.target);
+  data.order.user_id = store.user.id;
+  api.createOrder(data)
+    .then((response) => {
+      store.orders = response;
+      ui.createOrderSuccess(store.orders);
+      return store;
+    })
+    .catch(ui.failure);
+};
+
+const onCreateProduct = function(event) {
+  event.preventDefault();
+
+  let data = getFormFields(event.target);
+  data.product.user_id = store.user.id;
+  api.createProduct(data)
+    .then((response) => {
+      store.products = response;
+      ui.createProductSuccess(store.products);
+      return store;
+    })
+    .catch(ui.failure);
+};
 //
 // const onSignOut = function(event) {
 //   event.preventDefault();
@@ -72,7 +81,9 @@ const onSearch = function(event) {
 
 const addHandlers = () => {
   $('#search').on('click', onSearch);
-  // $('#sign-in').on('submit', onSignIn);
+  $('#new-inventory').on('submit', onCreateInv);
+  $('#new-order').on('submit', onCreateOrder);
+  $('#new-product').on('submit', onCreateProduct);
   // $('#change-password').on('submit', onChangePassword);
   // $('#sign-out').on('click', onSignOut);
 };

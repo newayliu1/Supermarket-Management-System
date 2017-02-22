@@ -9,9 +9,21 @@ const failure = () => {
   console.log('FAILURE');
 };
 
-const changePasswordSuccess = () =>{
-// $('#change-password').hide();
-$('.result-display').text('Change Password Successfully!');
+const createInvSuccess = (inventoryData) =>{
+let inventoryTable = require('../templates/inventory_tables.handlebars');
+$('#table-container').html(inventoryTable({inventories: inventoryData}));
+$('.input-field').val('');
+};
+
+const createOrderSuccess = (orderData) =>{
+let inventoryTable = require('../templates/order_tables.handlebars');
+$('#table-container').html(inventoryTable({orders: orderData}));
+$('.input-field').val('');
+};
+
+const createProductSuccess = (productData) =>{
+let inventoryTable = require('../templates/product_tables.handlebars');
+$('#table-container').html(inventoryTable({products: productData}));
 $('.input-field').val('');
 };
 
@@ -49,24 +61,14 @@ const createGameSuccess = () => {
   // }
 };
 
-const showGameSuccess = (data) => {
-  $('.games-played').text('You\'ve played ' + data.games.length + ' times!');
-};
-
-const offXO = () => {
-  $('#x').hide();
-  $('#o').hide();
-};
-
 module.exports = {
+  createInvSuccess,
+  createOrderSuccess,
+  createProductSuccess,
   failure,
   success,
   signInSuccess,
   signOutSuccess,
-  createGameSuccess,
-  showGameSuccess,
   selectedRole,
-  changePasswordSuccess,
   signUpSuccess,
-  offXO,
 };
