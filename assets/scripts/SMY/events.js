@@ -10,12 +10,12 @@ const data_analyst = require('./data_analyst');
 const onSearch = function(event) {
   event.preventDefault();
   //
-  let product = $('#search_input').val();
+  let productName = $('#search_input').val();
   api.search()
     .then((response) => {
       store.products = response.products;
-      let productID = data_analyst.getProductID(product);
-      $('#product_id').text(productID);
+      let product = data_analyst.getProduct(productName);
+      ui.showProduct(product);
       return store;
     })
     .catch(ui.failure);
@@ -57,12 +57,26 @@ const onCreateProduct = function(event) {
   data.product.user_id = store.user.id;
   api.createProduct(data)
     .then((response) => {
-      store.products = response;
-      ui.createProductSuccess(store.products);
+      store.product = response;
+      ui.createProductSuccess(store.product);
       return store;
     })
     .catch(ui.failure);
 };
+
+const onExpiredOrder = function(event) {
+  event.preventDefault();
+
+  api.getAllOrders()
+    .then((response) => {
+      store.orders = response.orders;
+      let data = data_analyst.getExpiredOrder(store.orders);
+      ui.createOrderSuccess(data);
+      return store;
+    })
+    .catch(ui.failure);
+};
+
 //
 // const onSignOut = function(event) {
 //   event.preventDefault();
@@ -84,6 +98,7 @@ const addHandlers = () => {
   $('#new-inventory').on('submit', onCreateInv);
   $('#new-order').on('submit', onCreateOrder);
   $('#new-product').on('submit', onCreateProduct);
+  $('#expired-orders').on('click', onExpiredOrder);
   // $('#change-password').on('submit', onChangePassword);
   // $('#sign-out').on('click', onSignOut);
 };

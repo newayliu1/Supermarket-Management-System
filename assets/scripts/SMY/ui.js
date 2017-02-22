@@ -21,45 +21,53 @@ $('#table-container').html(inventoryTable({orders: orderData}));
 $('.input-field').val('');
 };
 
-const createProductSuccess = (productData) =>{
 let inventoryTable = require('../templates/product_tables.handlebars');
+const createProductSuccess = (productData) =>{
 $('#table-container').html(inventoryTable({products: productData}));
 $('.input-field').val('');
 };
 
-const signUpSuccess = () =>{
-// $('#signUp-form').hide();
-$('.result-display').text('Sign Up Successfully!');
-$('.input-field').val('');
+const showProduct = function (product) {
+  if (product === undefined){
+  $('#product_id').text('Please create product first!');}
+  else {
+    $('#table-container').html(inventoryTable({products: product}));
+  }
 };
 
-const signInSuccess = () => {
-  $('.input-field').val('');
-  $('.sign-up').hide();
-  $('.sign-in').hide();
-  $('.change-password').show();
-  $('#sign-out').show();
-};
-
-const signOutSuccess = () => {
-  $('#sign-out').hide();
-  $('.change-password').hide();
-  $('.sign-in').show();
-  $('.sign-up').show();
-};
-
-const selectedRole = () => {
-  $('.container').show();
-};
-
-const createGameSuccess = () => {
-  $('#x').show();
-  $('#o').show();
-  // $('.games-played').hide();
-  // if (data) {
-  //   console.log(data);
-  // }
-};
+// const signUpSuccess = () =>{
+// // $('#signUp-form').hide();
+// $('.result-display').text('Sign Up Successfully!');
+// $('.input-field').val('');
+// };
+//
+// const signInSuccess = () => {
+//   $('.input-field').val('');
+//   $('.sign-up').hide();
+//   $('.sign-in').hide();
+//   $('.change-password').show();
+//   $('#sign-out').show();
+// };
+//
+// const signOutSuccess = () => {
+//   $('#sign-out').hide();
+//   $('.change-password').hide();
+//   $('.sign-in').show();
+//   $('.sign-up').show();
+// };
+//
+// const selectedRole = () => {
+//   $('.container').show();
+// };
+//
+// const createGameSuccess = () => {
+//   $('#x').show();
+//   $('#o').show();
+//   // $('.games-played').hide();
+//   // if (data) {
+//   //   console.log(data);
+//   // }
+// };
 
 module.exports = {
   createInvSuccess,
@@ -67,8 +75,5 @@ module.exports = {
   createProductSuccess,
   failure,
   success,
-  signInSuccess,
-  signOutSuccess,
-  selectedRole,
-  signUpSuccess,
+  showProduct
 };

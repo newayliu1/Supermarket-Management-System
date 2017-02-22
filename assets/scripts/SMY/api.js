@@ -45,6 +45,16 @@ const createProduct = function (data) {
   });
 };
 
+const getAllOrders = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/orders',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 // const changePassword = function (data) {
 //   return $.ajax({
 //     url: `${config.apiOrigin}/change-password/${store.user.id}`,
@@ -70,5 +80,6 @@ module.exports = {
   search,
   createInv,
   createOrder,
-  createProduct
+  createProduct,
+  getAllOrders
 };

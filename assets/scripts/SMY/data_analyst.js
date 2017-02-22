@@ -1,18 +1,30 @@
 'use strict';
 const store = require('../store');
 
-const getProductID = function(product) {
-  let productID = 0;
+const getProduct = function(productName) {
+  let product;
   store.products.forEach((el) => {
-    if (el.name === product){
-      productID = el.id;}
+    if (el.name === productName) {
+      product= {product:el};
+    }
   });
-  if (productID === 0){
-    return "Please create your product first.";
-  }
-  return `The product ID is ${productID}.`;
+  return product;
 };
 
-module.exports = {
-  getProductID
+
+const getExpiredOrder = function(orders) {
+  let today = new Date();
+  let arr = [];
+  today.getDate();
+  orders.forEach((order) => {
+    if (Date.parse(order.expiration_date) < today) {
+      arr.push(order);
+    }
+  });
+  return arr;
 };
+
+    module.exports = {
+      getProduct,
+      getExpiredOrder
+    };
