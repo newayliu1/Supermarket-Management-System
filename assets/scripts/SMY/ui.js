@@ -23,12 +23,14 @@ const createInvSuccess = (inventoryData) =>{
 let inventoryTable = require('../templates/inventory_tables.handlebars');
 $('#table-container').html(inventoryTable({inventories: inventoryData}));
 $('.input-field').val('');
+$('#product_id').text('');
 };
 
 const createOrderSuccess = (orderData) =>{
 let inventoryTable = require('../templates/order_tables.handlebars');
 $('#table-container').html(inventoryTable({orders: orderData}));
 $('.input-field').val('');
+$('#product_id').text('');
 };
 
 let inventoryTable = require('../templates/product_tables.handlebars');
@@ -42,7 +44,9 @@ const showProduct = function (product) {
   $('#product_id').text('Please create product first!');}
   else {
     $('#table-container').html(inventoryTable({products: product}));
+    $('#product_id').text('');
   }
+  $('.input-field').val('');
 };
 
 // const signUpSuccess = () =>{
