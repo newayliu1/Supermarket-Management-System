@@ -16,7 +16,7 @@ const updateSuccess = () => {
 const failure = () => {
   // $('.result-display').text('Action Incomplete');
   $('.input-field').val('');
-  console.log('FAILURE');
+  $('#product_id').text('Wrong Input');
 };
 
 const createInvSuccess = (inventoryData) =>{
