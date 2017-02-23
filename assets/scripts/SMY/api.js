@@ -55,6 +55,26 @@ const getAllOrders = function () {
   });
 };
 
+const getInventory = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
+const getOrder = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/orders/${data.id}}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 // const changePassword = function (data) {
 //   return $.ajax({
 //     url: `${config.apiOrigin}/change-password/${store.user.id}`,
@@ -66,20 +86,66 @@ const getAllOrders = function () {
 //   });
 // };
 //
-// const signOut = function () {
-//   return $.ajax({
-//     url: `${config.apiOrigin}/sign-out/${store.user.id}`,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//   });
-// };
+const deleteOrder = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/orders/${data.id}}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
+const deleteInv = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
+const updatePrice = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data: {
+      inventory: {
+        price: `${data.price}`,
+      },
+    },
+  });
+};
+
+const updateSection = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data: {
+      inventory: {
+        section: `${data.section}`,
+      },
+    },
+  });
+};
 
 module.exports = {
   search,
   createInv,
   createOrder,
   createProduct,
-  getAllOrders
+  getAllOrders,
+  deleteOrder,
+  deleteInv,
+  getInventory,
+  getOrder,
+  updatePrice,
+  updateSection
 };

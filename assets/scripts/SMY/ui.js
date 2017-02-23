@@ -3,6 +3,16 @@
 const success = () => {
 };
 
+const deleteSuccess = () => {
+  $('.input-field').val('');
+  $('#product_id').text('Delete Successfully');
+};
+
+const updateSuccess = () => {
+  $('.input-field').val('');
+  $('#product_id').text('Update Successfully');
+};
+
 const failure = () => {
   // $('.result-display').text('Action Incomplete');
   $('.input-field').val('');
@@ -75,5 +85,7 @@ module.exports = {
   createProductSuccess,
   failure,
   success,
-  showProduct
+  showProduct,
+  deleteSuccess,
+  updateSuccess
 };

@@ -27,6 +27,7 @@ const signInSuccess = () => {
   $('.sign-in').hide();
   $('.change-password').show();
   $('#sign-out').show();
+  $('aside').show();
 };
 
 const signOutSuccess = () => {
@@ -34,6 +35,8 @@ const signOutSuccess = () => {
   $('.change-password').hide();
   $('.sign-in').show();
   $('.sign-up').show();
+  $('section').text('');
+  $('aside').hide();
 };
 
 const selectedRole = () => {

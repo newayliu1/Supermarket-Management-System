@@ -77,6 +77,62 @@ const onExpiredOrder = function(event) {
     .catch(ui.failure);
 };
 
+const onSearchInv = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.getInventory(data)
+    .then((response) => {
+      store.inventory = response;
+      ui.createInvSuccess(store.inventory);
+      return store;
+    })
+    .catch(ui.failure);
+};
+
+const onSearchOrder = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.getOrder(data)
+    .then((response) => {
+      store.order = response;
+      ui.createOrderSuccess(store.order);
+      return store;
+    })
+    .catch(ui.failure);
+};
+
+const onDeleteOrder = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.deleteOrder(data)
+    .then(ui.deleteSuccess)
+    .catch(ui.failure);
+};
+
+const onDeleteInv = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.deleteInv(data)
+    .then(ui.deleteSuccess)
+    .catch(ui.failure);
+};
+
+const onUpdatePrice = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.updatePrice(data)
+    .then(ui.updateSuccess)
+    .catch(ui.failure);
+};
+
+const onUpdateSection = function(event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.updateSection(data)
+    .then(ui.updateSuccess)
+    .catch(ui.failure);
+};
+
 //
 // const onSignOut = function(event) {
 //   event.preventDefault();
@@ -99,8 +155,13 @@ const addHandlers = () => {
   $('#new-order').on('submit', onCreateOrder);
   $('#new-product').on('submit', onCreateProduct);
   $('#expired-orders').on('click', onExpiredOrder);
-  // $('#change-password').on('submit', onChangePassword);
-  // $('#sign-out').on('click', onSignOut);
+  $('#search-inv').on('submit', onSearchInv);
+  $('#search-order').on('submit', onSearchOrder);
+  $('#order-delete').on('submit', onDeleteOrder);
+  $('#inventory-delete').on('submit', onDeleteInv);
+  $('#update-inv-price').on('submit', onUpdatePrice);
+  $('#update-inv-section').on('submit', onUpdateSection);
+  $('aside').hide();
 };
 module.exports = {
   addHandlers,

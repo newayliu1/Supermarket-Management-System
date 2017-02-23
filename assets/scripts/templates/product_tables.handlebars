@@ -4,7 +4,9 @@
     <tr>
       <th>Product ID</th>
       <th>Name</th>
-      <th>Section</th>
+      <th>Sections</th>
+      <th>Inventories ID</th>
+      <th>Orders ID</th>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +14,9 @@
     <tr>
       <td data-id="{{product.id}}">{{product.id}}</td>
       <td>{{product.name}}</td>
-      <td>{{product.inventory.section}}
+      <td>{{product.sections}}</td>
+      <td>{{product.inventoriesID}}</td>
+      <td>{{product.ordersID}}</td>
     </tr>
     {{/each}}
   </tbody>
