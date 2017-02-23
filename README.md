@@ -3,6 +3,7 @@
 # Supermarket Management System
 
 [Link to the system website](https://newayliu1.github.io/Supermarket-Management-System/)
+[Back End API](https://github.com/newayliu1/SMS_Rails_API)
 
 ## Technologies Used
 
@@ -41,7 +42,7 @@ Since there are four tables in the database, the front end design has many forms
 [Teleport to My wireframe](http://imgur.com/1ltfr5u)
 
 ## ERD
-(http://imgur.com/BivvM4d)
+[ERD](http://imgur.com/BivvM4d)
 
 ## User Story
 
