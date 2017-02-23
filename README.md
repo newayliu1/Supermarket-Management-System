@@ -31,7 +31,7 @@ The most difficulty part is having a proper ERD diagram for this project. The
 relationship between Users and Products is many to many. Additionally, there are many attributes, data need to be stored for a product in my model. Thus, I was stuck
 into the ERD for a whole day to come out a four-table database.
 
-Since there are four tables in the database, the front end design has many forms 
+Since there are four tables in the database, the front end design has many forms and inputs for a user.
 
 ## Unsolved Problem
 - decorate the user interface
