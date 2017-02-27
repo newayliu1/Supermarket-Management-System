@@ -25,7 +25,6 @@ const onCreateInv = function(event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
-  data.inventory.user_id = store.user.id;
   api.createInv(data)
     .then((response) => {
       store.inventories = response;
@@ -40,7 +39,6 @@ const onCreateOrder = function(event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
-  data.order.user_id = store.user.id;
   api.createOrder(data)
     .then((response) => {
       store.orders = response;
@@ -54,7 +52,6 @@ const onCreateProduct = function(event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
-  data.product.user_id = store.user.id;
   api.createProduct(data)
     .then((response) => {
       store.product = response;
