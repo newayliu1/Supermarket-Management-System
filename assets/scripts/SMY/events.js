@@ -28,10 +28,11 @@ const onCreateInv = function(event) {
   api.createInv(data)
     .then((response) => {
       store.inventories = response;
-      ui.createInvSuccess(store.inventories);
+      ui.showCreateInvTable(store.inventories);
       return store;
     })
-    .catch(ui.failure);
+    .then(ui.createInvSuccess)
+    .catch(ui.createInvFailure);
 
 };
 //
@@ -42,10 +43,11 @@ const onCreateOrder = function(event) {
   api.createOrder(data)
     .then((response) => {
       store.orders = response;
-      ui.createOrderSuccess(store.orders);
+      ui.showCreateOrderTable(store.orders);
       return store;
     })
-    .catch(ui.failure);
+    .then(ui.createOrderSuccess)
+    .catch(ui.createOrderFailure);
 };
 
 const onCreateProduct = function(event) {
@@ -55,10 +57,11 @@ const onCreateProduct = function(event) {
   api.createProduct(data)
     .then((response) => {
       store.product = response;
-      ui.createProductSuccess(store.product);
+      ui.showCreateProductTable(store.product);
       return store;
     })
-    .catch(ui.failure);
+    .then(ui.createProductSuccess)
+    .catch(ui.createProductFailure);
 };
 
 const onExpiredOrder = function(event) {
@@ -68,9 +71,10 @@ const onExpiredOrder = function(event) {
     .then((response) => {
       store.orders = response.orders;
       let data = data_analyst.getExpiredOrder(store.orders);
-      ui.createOrderSuccess(data);
+      ui.showCreateOrderTable(data);
       return store;
     })
+    .then(ui.searchExpirationOrderSuccess)
     .catch(ui.failure);
 };
 
@@ -80,10 +84,11 @@ const onSearchInv = function(event) {
   api.getInventory(data)
     .then((response) => {
       store.inventory = response;
-      ui.createInvSuccess(store.inventory);
+      ui.showCreateInvTable(store.inventory);
       return store;
     })
-    .catch(ui.failure);
+    .then(ui.searchInvSuccess)
+    .catch(ui.searchInvFailure);
 };
 
 const onSearchOrder = function(event) {
@@ -92,10 +97,11 @@ const onSearchOrder = function(event) {
   api.getOrder(data)
     .then((response) => {
       store.order = response;
-      ui.createOrderSuccess(store.order);
+      ui.showCreateOrderTable(store.order);
       return store;
     })
-    .catch(ui.failure);
+    .then(ui.searchOrderSuccess)
+    .catch(ui.searchOrderFailure);
 };
 
 const onDeleteOrder = function(event) {
@@ -103,7 +109,7 @@ const onDeleteOrder = function(event) {
   let data = getFormFields(event.target);
   api.deleteOrder(data)
     .then(ui.deleteSuccess)
-    .catch(ui.failure);
+    .catch(ui.deleteFailure);
 };
 
 const onDeleteInv = function(event) {
@@ -111,7 +117,7 @@ const onDeleteInv = function(event) {
   let data = getFormFields(event.target);
   api.deleteInv(data)
     .then(ui.deleteSuccess)
-    .catch(ui.failure);
+    .catch(ui.deleteFailure);
 };
 
 const onUpdatePrice = function(event) {
@@ -119,7 +125,7 @@ const onUpdatePrice = function(event) {
   let data = getFormFields(event.target);
   api.updatePrice(data)
     .then(ui.updateSuccess)
-    .catch(ui.failure);
+    .catch(ui.updateFailure);
 };
 
 const onUpdateSection = function(event) {
@@ -127,7 +133,7 @@ const onUpdateSection = function(event) {
   let data = getFormFields(event.target);
   api.updateSection(data)
     .then(ui.updateSuccess)
-    .catch(ui.failure);
+    .catch(ui.updateFailure);
 };
 
 //

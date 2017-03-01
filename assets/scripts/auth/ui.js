@@ -1,23 +1,21 @@
 'use strict';
 
-const success = () => {
-};
-
-const failure = () => {
-  // $('.result-display').text('Action Incomplete');
-  $('.input-field').val('');
-};
+// const success = () => {
+// };
+//
+// const failure = () => {
+//   // $('.result-display').text('Action Incomplete');
+//   $('.input-field').val('');
+// };
 
 const changePasswordSuccess = () =>{
-// $('#change-password').hide();
 $('#result-display').text('Change Password Successfully!');
 $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
 };
 
 const changePasswordFailure = () =>{
-// $('#change-password').hide();
-$('#result-display').text('Change Password Successfully!');
+$('#result-display').text('Invalid Password.');
 $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
 };
@@ -31,7 +29,7 @@ $('.input-field').val('');
 
 const signUpFailure = () =>{
 // $('#signUp-form').hide();
-$('#result-display').text('Invalid email. Please try again.');
+$('#result-display').text('Invalid Email or Password. Please Try Again.');
 $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
 };
@@ -49,7 +47,7 @@ const signInSuccess = () => {
 
 const signInFailure = () => {
   $('.input-field').val('');
-  $('#result-display').text('Invalid email or password. Please try again.');
+  $('#result-display').text('Invalid Email or Password. Please Try Again.');
   $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 };
 
@@ -65,12 +63,13 @@ const signOutSuccess = () => {
 
 
 module.exports = {
-  failure,
-  success,
+  // failure,
+  // success,
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
   signUpSuccess,
   signInFailure,
-  signUpFailure
+  signUpFailure,
+  changePasswordFailure
 };

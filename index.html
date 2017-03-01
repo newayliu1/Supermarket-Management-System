@@ -65,7 +65,10 @@
   <header>
     Supermarket Management System
   </header>
-  <div id="result-display"></div>
+
+  <div class="result-container">
+    <div id="result-display"></div>
+  </div>
 
 
   <aside>
@@ -73,22 +76,22 @@
 
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Create</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Update</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Delete</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Search</a></li>
+        <li role="presentation" class="active"><a href="#create-tab" aria-controls="create-tab" role="tab" data-toggle="tab">Create</a></li>
+        <li role="presentation"><a href="#update-tab" aria-controls="update-tab" role="tab" data-toggle="tab">Update</a></li>
+        <li role="presentation"><a href="#delete-tab" aria-controls="delete-tab" role="tab" data-toggle="tab">Delete</a></li>
+        <li role="presentation"><a href="#search-tab" aria-controls="search-tab" role="tab" data-toggle="tab">Search</a></li>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
+        <div role="tabpanel" class="tab-pane active" id="create-tab">
           <div>
-            <div>Step1: Search your product ID</div>
+            <div>Step1: Need to know the product ID to create Inventories and Orders</div>
             <input class="input-field" id="search_input" type="text" name='name' placeholder="Product Name">
             <button id="search">Search</button>
           </div>
-          <div>Create
-            <div>Inventory
+          <div>Step 2:
+            <div>Create Inventory by product ID
               <form id="new-inventory">
                 <input class="input-field" type="text" name='inventory[product_id]' placeholder="Product ID"><br/>
                 <input class="input-field" type="text" name='inventory[price]' placeholder="Price"><br/>
@@ -96,7 +99,7 @@
                 <input type="submit" name="submit" value="Create">
               </form>
             </div>
-            <div>Order
+            <div>Create Order by product ID
               <form id="new-order">
                 <input class="input-field" type="text" name='order[product_id]' placeholder="Product ID"><br/>
                 <input class="input-field" type="text" name='order[amount]' placeholder="Amount"><br/>
@@ -105,7 +108,7 @@
                 <input type="submit" name="submit" value="Create">
               </form>
             </div>
-            <div>Product
+            <div>Create Product by name
               <form id="new-product">
                 <input class="input-field" type="text" name='product[name]' placeholder="Name">
                 <input type="submit" name="submit" value="Create">
@@ -113,7 +116,7 @@
             </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="profile">
+        <div role="tabpanel" class="tab-pane" id="update-tab">
           <div>Update
             <div>Inventory Price
               <form id="update-inv-price">
@@ -131,23 +134,23 @@
             </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="messages">
+        <div role="tabpanel" class="tab-pane" id="delete-tab">
           <div>Delete
-            <div>Order
-              <form id="order-delete">
-                <input class="input-field" type="text" name='id' placeholder="Order ID">
-                <input type="submit" name="submit" value="Delete">
-              </form>
-            </div>
             <div>Inventory
               <form id="inventory-delete">
                 <input class="input-field" type="text" name='id' placeholder="Inventory ID">
                 <input type="submit" name="submit" value="Delete">
               </form>
             </div>
+            <div>Order
+              <form id="order-delete">
+                <input class="input-field" type="text" name='id' placeholder="Order ID">
+                <input type="submit" name="submit" value="Delete">
+              </form>
+            </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="settings">
+        <div role="tabpanel" class="tab-pane" id="search-tab">
           <div>Look Up<br/>
             <button id="expired-orders">Expired Orders</button>
             <div>Inventory

@@ -14,7 +14,7 @@ const onSignUp = function (event) {
 
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .catch(ui.failure);
+    .catch(ui.signUpFailure);
 
 };
 
@@ -40,17 +40,13 @@ const onChangePassword = function (event) {
 
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
-    .catch(ui.failure)
+    .catch(ui.changePasswordFailure)
     ;
 };
 
 const onSignOut = function (event) {
   event.preventDefault();
   api.signOut()
-    // .then(() => {
-    //   delete player.playerOne;
-    //   return player;
-    // })
     .then(ui.signOutSuccess)
     .catch(ui.failure);
 };
@@ -61,9 +57,9 @@ const onSignOut = function (event) {
 
 const addHandlers = () => {
   $('#sign-up').show();
-    $('#sign-in').show();
-    $('#sign-out').hide();
-    $('.change-password').hide();
+  $('#sign-in').show();
+  $('#sign-out').hide();
+  $('.change-password').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);

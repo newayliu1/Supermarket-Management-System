@@ -9,7 +9,6 @@ const getProduct = function(productName) {
       let inventories =[];
       let inventoriesID =[];
       let ordersID = [];
-      console.log(el);
       el.inventories.forEach((inventory) => {
         inventories.push(inventory.section);
         inventoriesID.push(inventory.id);
