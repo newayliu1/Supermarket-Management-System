@@ -6,18 +6,33 @@ const success = () => {
 const failure = () => {
   // $('.result-display').text('Action Incomplete');
   $('.input-field').val('');
-  console.log('FAILURE');
 };
 
 const changePasswordSuccess = () =>{
 // $('#change-password').hide();
-$('.result-display').text('Change Password Successfully!');
+$('#result-display').text('Change Password Successfully!');
+$('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
+$('.input-field').val('');
+};
+
+const changePasswordFailure = () =>{
+// $('#change-password').hide();
+$('#result-display').text('Change Password Successfully!');
+$('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
 };
 
 const signUpSuccess = () =>{
 // $('#signUp-form').hide();
-$('.result-display').text('Sign Up Successfully!');
+$('#result-display').text('Sign Up Successfully!');
+$('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
+$('.input-field').val('');
+};
+
+const signUpFailure = () =>{
+// $('#signUp-form').hide();
+$('#result-display').text('Invalid email. Please try again.');
+$('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
 };
 
@@ -28,6 +43,14 @@ const signInSuccess = () => {
   $('.change-password').show();
   $('#sign-out').show();
   $('aside').show();
+  $('#result-display').text('Sign In Successfully.');
+  $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
+};
+
+const signInFailure = () => {
+  $('.input-field').val('');
+  $('#result-display').text('Invalid email or password. Please try again.');
+  $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 };
 
 const signOutSuccess = () => {
@@ -39,37 +62,15 @@ const signOutSuccess = () => {
   $('aside').hide();
 };
 
-const selectedRole = () => {
-  $('.container').show();
-};
 
-const createGameSuccess = () => {
-  $('#x').show();
-  $('#o').show();
-  // $('.games-played').hide();
-  // if (data) {
-  //   console.log(data);
-  // }
-};
-
-const showGameSuccess = (data) => {
-  $('.games-played').text('You\'ve played ' + data.games.length + ' times!');
-};
-
-const offXO = () => {
-  $('#x').hide();
-  $('#o').hide();
-};
 
 module.exports = {
   failure,
   success,
   signInSuccess,
   signOutSuccess,
-  createGameSuccess,
-  showGameSuccess,
-  selectedRole,
   changePasswordSuccess,
   signUpSuccess,
-  offXO,
+  signInFailure,
+  signUpFailure
 };

@@ -159,6 +159,7 @@ const addHandlers = () => {
   $('#update-inv-price').on('submit', onUpdatePrice);
   $('#update-inv-section').on('submit', onUpdateSection);
   $('aside').hide();
+  $('#result-display').hide();
 };
 module.exports = {
   addHandlers,

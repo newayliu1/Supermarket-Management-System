@@ -5,32 +5,32 @@ const success = () => {
 
 const deleteSuccess = () => {
   $('.input-field').val('');
-  $('#product_id').text('Delete Successfully');
+  $('#result-display').text('Delete Successfully');
 };
 
 const updateSuccess = () => {
   $('.input-field').val('');
-  $('#product_id').text('Update Successfully');
+  $('#result-display').text('Update Successfully');
 };
 
 const failure = () => {
   // $('.result-display').text('Action Incomplete');
   $('.input-field').val('');
-  $('#product_id').text('Wrong Input');
+  $('#result-display').text('Wrong Input');
 };
 
 const createInvSuccess = (inventoryData) =>{
 let inventoryTable = require('../templates/inventory_tables.handlebars');
 $('#table-container').html(inventoryTable({inventories: inventoryData}));
 $('.input-field').val('');
-$('#product_id').text('');
+$('#result-display').text('');
 };
 
 const createOrderSuccess = (orderData) =>{
 let inventoryTable = require('../templates/order_tables.handlebars');
 $('#table-container').html(inventoryTable({orders: orderData}));
 $('.input-field').val('');
-$('#product_id').text('');
+$('#result-display').text('');
 };
 
 let inventoryTable = require('../templates/product_tables.handlebars');
@@ -41,10 +41,10 @@ $('.input-field').val('');
 
 const showProduct = function (product) {
   if (product === undefined){
-  $('#product_id').text('Please create product first!');}
+  $('#result-display').text('Please create product first!');}
   else {
     $('#table-container').html(inventoryTable({products: product}));
-    $('#product_id').text('');
+    $('#result-display').text('');
   }
   $('.input-field').val('');
 };

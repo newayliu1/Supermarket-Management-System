@@ -34,40 +34,65 @@
       </li>
       <li class="dropdown sign-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
         <div class="dropdown-menu pull-right">
-            <form id="sign-in">
-                <label>
+          <form id="sign-in">
+            <label>
               EMAIL
               <input class="input-field" type="text" name='credentials[email]'>
             </label><br/>
-                <label>
+            <label>
               PASSWORD
               <input class="input-field" type = 'password' name='credentials[password]'>
             </label><br/>
-                <input type="submit" name="submit" value="Sign in!">
-              </form>
-          </div>
+            <input type="submit" name="submit" value="Sign in!">
+          </form>
+        </div>
       </li>
       <li class="dropdown change-password"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Password</a>
         <div class="dropdown-menu pull-right">
-            <form id="change-password">
-              <label>Change Password</label>
-                <input class="input-field" type="password" name="passwords[old]" value="" placeholder="Old Password">
-              <input class="input-field" type="password" name="passwords[new]" value="" placeholder="New Password">
-              <input type="submit" name="submit" value="Change Password">
-            </form>
-          </div>
+          <form id="change-password">
+            <label>Change Password</label>
+            <input class="input-field" type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input class="input-field" type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+          </form>
+        </div>
       </li>
       <li id="sign-out"><a href="#">Sign Out</a></li>
     </ul>
   </nav>
+
+
   <header>
     Supermarket Management System
   </header>
+  <div id="result-display"></div>
+
+
   <aside>
     <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">...</div>
+        <div role="tabpanel" class="tab-pane" id="profile">...</div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+      </div>
+
+    </div>
+
+
+    <div>
       <div>Step1: Search your product ID</div>
-      <div id="product_id"></div>
-      <input class="input-field" id="search_input" type="text" name='name'>
+      <input class="input-field" id="search_input" type="text" name='name' placeholder="Product Name">
       <button id="search">Search</button>
     </div>
     <div>Create

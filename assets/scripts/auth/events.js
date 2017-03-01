@@ -29,7 +29,7 @@ const onSignIn = function (event) {
       return store;
     })
     .then(ui.signInSuccess)
-    .catch(ui.failure);
+    .catch(ui.signInFailure);
 
 };
 
