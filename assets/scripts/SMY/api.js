@@ -57,7 +57,7 @@ const getAllOrders = function () {
 
 const getInventory = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    url: `${config.apiOrigin}/inventories/${data.id}`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -67,7 +67,7 @@ const getInventory = function (data) {
 
 const getOrder = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/orders/${data.id}}`,
+    url: `${config.apiOrigin}/orders/${data.id}`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -88,7 +88,7 @@ const getOrder = function (data) {
 //
 const deleteOrder = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/orders/${data.id}}`,
+    url: `${config.apiOrigin}/orders/${data.id}`,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -98,7 +98,7 @@ const deleteOrder = function (data) {
 
 const deleteInv = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    url: `${config.apiOrigin}/inventories/${data.id}`,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -108,7 +108,7 @@ const deleteInv = function (data) {
 
 const updatePrice = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    url: `${config.apiOrigin}/inventories/${data.id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -123,7 +123,7 @@ const updatePrice = function (data) {
 
 const updateSection = function (data) {
   return $.ajax({
-    url: `${config.apiOrigin}/inventories/${data.id}}`,
+    url: `${config.apiOrigin}/inventories/${data.id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
