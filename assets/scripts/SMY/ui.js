@@ -40,7 +40,7 @@ const createProductSuccess = () => {
 };
 
 const createProductFailure = () => {
-  $('#result-display').text('Product Name Exists in Database!');
+  $('#result-display').text('Product Name Exists in Database OR Invalid Input!');
   $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
   $('.input-field').val('');
 };
@@ -116,7 +116,7 @@ const updateSuccess = () => {
 };
 
 const updateFailure = () => {
-  $('#result-display').text('Update Unsuccessfully!! Since Invalid ID!!');
+  $('#result-display').text('Update Unsuccessfully!! Since Invalid ID Or Invalid Input!!');
   $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
   $('.input-field').val('');
 };
