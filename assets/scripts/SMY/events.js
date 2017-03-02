@@ -10,11 +10,11 @@ const data_analyst = require('./data_analyst');
 const onSearch = function(event) {
   event.preventDefault();
   //
-  let productName = $('#search_input').val();
+  let data = getFormFields(event.target);
   api.search()
     .then((response) => {
       store.products = response.products;
-      let product = data_analyst.getProduct(productName);
+      let product = data_analyst.getProduct(data.product);
       ui.showProduct(product);
       return store;
     })
@@ -153,7 +153,7 @@ const onUpdateSection = function(event) {
 
 
 const addHandlers = () => {
-  $('#search').on('click', onSearch);
+  $('.search_input').on('submit', onSearch);
   $('#new-inventory').on('submit', onCreateInv);
   $('#new-order').on('submit', onCreateOrder);
   $('#new-product').on('submit', onCreateProduct);
