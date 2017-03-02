@@ -124,6 +124,11 @@ const onUpdatePrice = function(event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.updatePrice(data)
+    .then((response) => {
+      store.inventory = response;
+      ui.showCreateInvTable(store.inventory);
+      return store;
+    })
     .then(ui.updateSuccess)
     .catch(ui.updateFailure);
 };
@@ -132,6 +137,11 @@ const onUpdateSection = function(event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.updateSection(data)
+    .then((response) => {
+      store.inventory = response;
+      ui.showCreateInvTable(store.inventory);
+      return store;
+    })
     .then(ui.updateSuccess)
     .catch(ui.updateFailure);
 };
