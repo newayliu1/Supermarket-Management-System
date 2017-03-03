@@ -25,6 +25,7 @@ const signUpSuccess = () =>{
 $('#result-display').text('Sign Up Successfully!');
 $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
 $('.input-field').val('');
+$('.sign-up').hide();
 };
 
 const signUpFailure = () =>{
