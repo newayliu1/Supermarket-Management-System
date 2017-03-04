@@ -70,7 +70,7 @@ const createInvSuccess = () => {
 };
 
 const createInvFailure = () => {
-  $('#result-display').text('Invalid Product ID Or Empty Input Field!');
+  $('#result-display').text('Invalid Input Field Or Empty Input Field!');
   $('#result-display').fadeIn(1000).delay(1000).fadeOut(300);
   $('.input-field').val('');
 };

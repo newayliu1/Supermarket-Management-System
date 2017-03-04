@@ -86,141 +86,130 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
-          <ol><h4>Create Instructions</h4>
-            <li><h5>Look up the product which you want to create an order or inventory for in FIELD 1.</h5></li>
-            <li><h5>If the product does not exists in databse, please create product in FIELD 2</h5></li>
-            <li><h5>If the product exists in the database, use the product ID to create it in FIELD 3</h5></li>
-          </ol>
-          <h5>Attention: <br/>The category or section of product is the name of your inventory to store product.</h5>
-
-          <ol><h4>Update Instructions</h4>
-            <li><h5>Look up the product which you want to update the inventory for from FIELD 1.</h5></li>
-            <li><h5>Use the inventory id to update the price or section from FIELD 2.</h5></li>
-          </ol>
-          <h5>Attention: <br/>Order is not allowed to update!!</h5>
-
-          <ol><h4>Delete Instructions</h4>
-            <li><h5>Look up the product which you want to delete the order and inventory for in FIELD 1.</h5></li>
-            <li><h5>Use the inventory id or order id to delete in FIELD 2.</h5></li>
+          <ol><h4>Create</h4>
+            <li><h5>Create a product in the database (a product has a name)</h5></li>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Create inventory item for product (inventory of product has a price and section)</h5></li>
+            <li><h5>Create order for product (order of product has an amount, order date, and expiration date)</h5></li>
+            <li><h5>Input format for date: 2017-1-1</h5></li>
           </ol>
 
-          <ol><h4>Search Instructions</h4>
-            <li><h5>Look up the product which you want to search the order and inventory for in FIELD 1.</h5></li>
-            <li><h5>Use the inventory id or order id to Search in FIELD 2.</h5></li>
+          <ol><h4>Update</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Update inventory price</h5></li>
+            <li><h5>Update inventory section</h5></li>
+          </ol>
+
+          <ol><h4>Delete</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Delete inventory by inventory ID</h5></li>
+            <li><h5>Delete order by order ID</h5></li>
+          </ol>
+
+          <ol><h4>Search</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Search by inventory ID</h5></li>
+            <li><h5>Search by order ID</h5></li>
+            <li><h5>Get all expired orders</h5></li>
           </ol>
         </div>
         <div role="tabpanel" class="tab-pane" id="create-tab">
+          <h3>Create Product by name</h3>
           <div>
-            <h3>Field 1: </h3>
-            <p>Search Product By Name</p>
-            <form class="search_input">
-              <input class="input-field" type="text" name='product' placeholder="Product Name">
-              <input type="submit" name="submit" value="search">
-            </form>
-          </div>
-          <h3>Field 2:</h3>
-          <div>Create Product by name
             <form id="new-product">
               <input class="input-field" type="text" name='product[name]' placeholder="Name">
               <input type="submit" name="submit" value="Create">
             </form>
           </div>
-          <h3>Field 3:</h3>
-            <div>Create Inventory by product ID
+          <div>
+            <h3>Search Product By Name</h3>
+            <form class="search_input">
+              <input class="input-field" type="text" name='product' placeholder="Product Name">
+              <input type="submit" name="submit" value="search">
+            </form>
+          </div>
+          <h3>Create Inventory by product ID</h3>
+            <div>
               <form id="new-inventory">
-                <input class="input-field" type="text" name='inventory[product_id]' placeholder="Product ID"><br/>
-                <input class="input-field" type="text" name='inventory[price]' placeholder="Price"><br/>
-                <input class="input-field" type="text" name='inventory[section]' placeholder="Section">
+                <span>&nbsp;&nbsp;</span><input class="input-field" type="text" name='inventory[product_id]' placeholder="Product ID"><br/>
+                <span>$</span><input class="input-field" type="text" name='inventory[price]' placeholder="Price"><br/>
+                <span>&nbsp;&nbsp;</span><input class="input-field" type="text" name='inventory[section]' placeholder="Section">
                 <input type="submit" name="submit" value="Create">
               </form>
             </div>
-            <div>Create Order by product ID
+            <h3>Create Order by product ID</h3>
               <form id="new-order">
                 <input class="input-field" type="text" name='order[product_id]' placeholder="Product ID"><br/>
                 <input class="input-field" type="text" name='order[amount]' placeholder="Amount"><br/>
-                <input class="input-field" type="text" name='order[expiration_date]' placeholder="Expiration Date: (eg: 2017-2-1)"><br/>
-                <input class="input-field" type="text" name='order[order_date]' placeholder="Ordered Date: (eg: 2017-2-1)">
+                <input class="input-field" type="text" name='order[expiration_date]' placeholder="Expiration Date"><br/>
+                <input class="input-field" type="text" name='order[order_date]' placeholder="Ordered Date">
                 <input type="submit" name="submit" value="Create">
               </form>
-            </div>
           </div>
 
         <div role="tabpanel" class="tab-pane" id="update-tab">
           <div>
-            <h3>Field 1: </h3>
-            <p>Search Product By Name</p>
+            <h3>Search Product By Name</h3>
             <form class="search_input">
               <input class="input-field" type="text" name='product' placeholder="Product Name">
               <input type="submit" name="submit" value="search">
             </form>
           </div>
-          <h3>Field 2: </h3>
-          <div>Update
-            <div>Inventory Price
+          <h3>Update Inventory Price</h3>
+          <div>
               <form id="update-inv-price">
-                <input class="input-field" type="text" name='id' placeholder="Inventory ID">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID"><br/>
                 <input class="input-field" type="text" name='price' placeholder="Price">
                 <input type="submit" name="submit" value="Update">
               </form>
-            </div>
-            <div>Inventory Section
+            <h3>Update Inventory Section</h3>
               <form id="update-inv-section">
-                <input class="input-field" type="text" name='id' placeholder="Inventory ID">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID"><br/>
                 <input class="input-field" type="text" name='section' placeholder="Section">
                 <input type="submit" name="submit" value="Update">
               </form>
-            </div>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="delete-tab">
           <div>
-            <h3>Field 1: </h3>
-            <p>Search Product By Name</p>
+            <h3>Search Product By Name</h3>
             <form class="search_input">
               <input class="input-field" type="text" name='product' placeholder="Product Name">
               <input type="submit" name="submit" value="search">
             </form>
           </div>
-          <h3>Field 2: </h3>
-          <div>Delete
-            <div>Inventory
+          <h3>Delete Inventory</h3>
+          <div>
               <form id="inventory-delete">
                 <input class="input-field" type="text" name='id' placeholder="Inventory ID">
                 <input type="submit" name="submit" value="Delete">
               </form>
-            </div>
-            <div>Order
+            <h3>Delete Order</h3>
               <form id="order-delete">
                 <input class="input-field" type="text" name='id' placeholder="Order ID">
                 <input type="submit" name="submit" value="Delete">
               </form>
-            </div>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="search-tab">
           <div>
             <div>
-              <h3>Field 1: </h3>
-              <p>Search Product By Name</p>
+              <h3>Search Product By Name</h3>
               <form class="search_input">
                 <input class="input-field" type="text" name='product' placeholder="Product Name">
                 <input type="submit" name="submit" value="search">
               </form>
-            </div>
-            <h3>Field 2: </h3>
-            <div>Inventory
+            <h3>Search Inventory</h3>
               <form id="search-inv">
                 <input class="input-field" type="text" name='id' placeholder="Inventory ID">
                 <input type="submit" name="submit" value="search">
               </form>
-            </div>
-            <div>Order
+            <h3>Search Order</h3>
               <form id="search-order">
                 <input class="input-field" type="text" name='id' placeholder="Order ID">
                 <input type="submit" name="submit" value="search">
               </form>
-            </div>
-            <h5>Get all the Expired Orders</h5>
+            <h3>Get all the Expired Orders</h3>
             <button id="expired-orders">Expired Orders</button>
           </div>
         </div>
