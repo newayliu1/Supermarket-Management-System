@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Supermarket Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <nav>
+    <ul class="navigation">
+      <li class="dropdown sign-up"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+        <div class="dropdown-menu pull-right">
+          <form id="sign-up">
+            <label>EMAIL
+              <input class="input-field" type="text" name='credentials[email]'>
+            </label>
+            <label>PASSWORD
+              <input class="input-field" type = 'password' name='credentials[password]'>
+            </label>
+            <label>PASSWORD CONFIRMATION
+              <input class="input-field" type = 'password' name='credentials[password_confirmation]'>
+            </label>
+            <input type="submit" name="submit" value="Sign up!">
+          </form>
+        </div>
+      </li>
+      <li class="dropdown sign-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+        <div class="dropdown-menu pull-right">
+          <form id="sign-in">
+            <label>
+              EMAIL
+              <input class="input-field" type="text" name='credentials[email]'>
+            </label><br/>
+            <label>
+              PASSWORD
+              <input class="input-field" type = 'password' name='credentials[password]'>
+            </label><br/>
+            <input type="submit" name="submit" value="Sign in!">
+          </form>
+        </div>
+      </li>
+      <li class="dropdown change-password"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Password</a>
+        <div class="dropdown-menu pull-right">
+          <form id="change-password">
+            <label>Change Password</label>
+            <input class="input-field" type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input class="input-field" type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+          </form>
+        </div>
+      </li>
+      <li id="sign-out"><a href="#">Sign Out</a></li>
+    </ul>
+  </nav>
+
+
+  <header>
+    Supermarket Management System
+  </header>
+
+  <div class="result-container">
+    <div id="result-display"></div>
+  </div>
+
+
+  <aside>
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Instruction</a></li>
+        <li role="presentation"><a href="#create-tab" aria-controls="create-tab" role="tab" data-toggle="tab">Create</a></li>
+        <li role="presentation"><a href="#update-tab" aria-controls="update-tab" role="tab" data-toggle="tab">Update</a></li>
+        <li role="presentation"><a href="#delete-tab" aria-controls="delete-tab" role="tab" data-toggle="tab">Delete</a></li>
+        <li role="presentation"><a href="#search-tab" aria-controls="search-tab" role="tab" data-toggle="tab">Search</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <ol><h4>Create</h4>
+            <li><h5>Create a product in the database (a product has a name)</h5></li>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Create inventory item for product (inventory of product has a price and section)</h5></li>
+            <li><h5>Create order for product (order of product has an amount, order date, and expiration date)</h5></li>
+            <li><h5>Input format for date: 2017-1-1</h5></li>
+          </ol>
+
+          <ol><h4>Update</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Update inventory price</h5></li>
+            <li><h5>Update inventory section</h5></li>
+          </ol>
+
+          <ol><h4>Delete</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Delete inventory by inventory ID</h5></li>
+            <li><h5>Delete order by order ID</h5></li>
+          </ol>
+
+          <ol><h4>Search</h4>
+            <li><h5>Search for product by name</h5></li>
+            <li><h5>Search by inventory ID</h5></li>
+            <li><h5>Search by order ID</h5></li>
+            <li><h5>Get all expired orders</h5></li>
+          </ol>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="create-tab">
+          <h3>Create Product by name</h3>
+          <div>
+            <form id="new-product">
+              <input class="input-field" type="text" name='product[name]' placeholder="Name">
+              <input type="submit" name="submit" value="Create">
+            </form>
+          </div>
+          <div>
+            <h3>Search Product By Name</h3>
+            <form class="search_input">
+              <input class="input-field" type="text" name='product' placeholder="Product Name">
+              <input type="submit" name="submit" value="search">
+            </form>
+          </div>
+          <h3>Create Inventory by product ID</h3>
+            <div>
+              <form id="new-inventory">
+                <span>&nbsp;&nbsp;</span><input class="input-field" type="text" name='inventory[product_id]' placeholder="Product ID"><br/>
+                <span>$</span><input class="input-field" type="text" name='inventory[price]' placeholder="Price"><br/>
+                <span>&nbsp;&nbsp;</span><input class="input-field" type="text" name='inventory[section]' placeholder="Section">
+                <input type="submit" name="submit" value="Create">
+              </form>
+            </div>
+            <h3>Create Order by product ID</h3>
+              <form id="new-order">
+                <input class="input-field" type="text" name='order[product_id]' placeholder="Product ID"><br/>
+                <input class="input-field" type="text" name='order[amount]' placeholder="Amount"><br/>
+                <input class="input-field" type="text" name='order[expiration_date]' placeholder="Expiration Date"><br/>
+                <input class="input-field" type="text" name='order[order_date]' placeholder="Ordered Date">
+                <input type="submit" name="submit" value="Create">
+              </form>
+          </div>
+
+        <div role="tabpanel" class="tab-pane" id="update-tab">
+          <div>
+            <h3>Search Product By Name</h3>
+            <form class="search_input">
+              <input class="input-field" type="text" name='product' placeholder="Product Name">
+              <input type="submit" name="submit" value="search">
+            </form>
+          </div>
+          <h3>Update Inventory Price</h3>
+          <div>
+              <form id="update-inv-price">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID"><br/>
+                <input class="input-field" type="text" name='price' placeholder="Price">
+                <input type="submit" name="submit" value="Update">
+              </form>
+            <h3>Update Inventory Section</h3>
+              <form id="update-inv-section">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID"><br/>
+                <input class="input-field" type="text" name='section' placeholder="Section">
+                <input type="submit" name="submit" value="Update">
+              </form>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="delete-tab">
+          <div>
+            <h3>Search Product By Name</h3>
+            <form class="search_input">
+              <input class="input-field" type="text" name='product' placeholder="Product Name">
+              <input type="submit" name="submit" value="search">
+            </form>
+          </div>
+          <h3>Delete Inventory</h3>
+          <div>
+              <form id="inventory-delete">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID">
+                <input type="submit" name="submit" value="Delete">
+              </form>
+            <h3>Delete Order</h3>
+              <form id="order-delete">
+                <input class="input-field" type="text" name='id' placeholder="Order ID">
+                <input type="submit" name="submit" value="Delete">
+              </form>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="search-tab">
+          <div>
+            <div>
+              <h3>Search Product By Name</h3>
+              <form class="search_input">
+                <input class="input-field" type="text" name='product' placeholder="Product Name">
+                <input type="submit" name="submit" value="search">
+              </form>
+            <h3>Search Inventory</h3>
+              <form id="search-inv">
+                <input class="input-field" type="text" name='id' placeholder="Inventory ID">
+                <input type="submit" name="submit" value="search">
+              </form>
+            <h3>Search Order</h3>
+              <form id="search-order">
+                <input class="input-field" type="text" name='id' placeholder="Order ID">
+                <input type="submit" name="submit" value="search">
+              </form>
+            <h3>Get all the Expired Orders</h3>
+            <button id="expired-orders">Expired Orders</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  </aside>
+  <section id="table-container" class="clearfix">
+  </section>
+</body>
+
+</html>
